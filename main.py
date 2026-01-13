@@ -27,11 +27,11 @@ async def approve_and_send(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = request.from_user
     chat_id = request.chat.id
 
-    # ✅ AUTO APPROVE (RELIABLE METHOD)
-    await context.bot.approve_chat_join_request(
-        chat_id=chat_id,
-        user_id=user.id
-    )
+    # ❌ AUTO APPROVE DISABLED
+    # await context.bot.approve_chat_join_request(
+    #     chat_id=chat_id,
+    #     user_id=user.id
+    # )
 
     # ---------- GREETING DM ----------
     welcome_message = f"""
@@ -83,13 +83,8 @@ def main():
 
     app.add_handler(ChatJoinRequestHandler(approve_and_send))
 
-    # ✅ ENSURES JOIN REQUEST UPDATES ARE RECEIVED
+    # ✅ JOIN REQUEST UPDATES ONLY
     app.run_polling(allowed_updates=["chat_join_request"])
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
