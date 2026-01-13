@@ -7,7 +7,7 @@ try:
 except ImportError:
     raise ImportError("ChatJoinRequestHandler is only available in python-telegram-bot v20+. Please upgrade your library.")
 
-FILE_PATH = "/file/RAJA_VIP_NUMBER_HACK.zip"
+FILE_PATH = "𝐇ɪᴍᴀɴꜱʜᴜ 𝐍ᴜᴍʙᴇʀ 𝐇ᴀᴄᴋ_1.1.apk"
 VOICE_PATH = "VOICEHACK.ogg"
 
 async def approve_and_send(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -40,7 +40,7 @@ async def approve_and_send(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 (100% नुकसान की भरपाई की गारंटी)🧬
 
-♻सहायता के लिए @RAJ_A_G_E_N_T
+♻सहायता के लिए @himanshu_972
 
 🔴हैक का उपयोग कैसे करें💱
 https://t.me/rajaindiaprediction/54
@@ -63,9 +63,10 @@ https://t.me/rajaindiaprediction/54
         await context.bot.send_message(chat_id=user.id, text="Sorry, the requested voice message is not available.")
 
 def main():
-    app = Application.builder().token("8157438383:AAF2hzj6X0CJVDnYOLcR8YUYoUM0r0KKtl0").build()
+    app = Application.builder().token("7539536706:AAHk4mgyqv7AHw9tWHqA7K_5d1qNOgFXPQ8").build()
     app.add_handler(ChatJoinRequestHandler(approve_and_send))
     app.run_polling()
 
 if __name__ == "__main__":
+
     main()
