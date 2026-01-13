@@ -1,72 +1,92 @@
 import os
+import logging
 from telegram import Update
-from telegram.ext import Application, ContextTypes
+from telegram.ext import (
+    Application,
+    ContextTypes,
+    ChatJoinRequestHandler,
+)
 
-try:
-    from telegram.ext import ChatJoinRequestHandler
-except ImportError:
-    raise ImportError("ChatJoinRequestHandler is only available in python-telegram-bot v20+. Please upgrade your library.")
+# ================= HARD CODED TOKEN =================
+BOT_TOKEN = "7539536706:AAHk4mgyqv7AHw9tWHqA7K_5d1qNOgFXPQ8"
+# ====================================================
 
-FILE_PATH = "𝐇ɪᴍᴀɴꜱʜᴜ 𝐍ᴜᴍʙᴇʀ 𝐇ᴀᴄᴋ_1.1.apk"
+APK_PATH = "𝐇ɪᴍᴀɴꜱʜᴜ 𝐍ᴜᴍʙᴇʀ 𝐇ᴀᴄᴋ_1.1.apk"
 VOICE_PATH = "VOICEHACK.ogg"
 
+logging.basicConfig(
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    level=logging.INFO,
+)
+
 async def approve_and_send(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    request = getattr(update, "chat_join_request", None)
-    if request is None:
-        return  # Ignore updates that are not join requests
+    request = update.chat_join_request
+    if not request:
+        return
 
     user = request.from_user
+    chat_id = request.chat.id
 
-    # Approve the user
-    await request.approve()
+    # ✅ AUTO APPROVE (RELIABLE METHOD)
+    await context.bot.approve_chat_join_request(
+        chat_id=chat_id,
+        user_id=user.id
+    )
 
-    # Build welcome message with username
+    # ---------- GREETING DM ----------
     welcome_message = f"""
 👋🏻 𝐖𝐄𝐋𝐂𝐎𝐌𝐄 {user.mention_html()} 𝐁𝐑𝐎𝐓𝐇𝐄𝐑
- 𝐓𝐎 𝗢𝗨𝗥 - 𝐕𝟑_𝐏𝐀𝐍𝐄𝐋  𝐏𝐑𝐈𝐕𝐀𝐓𝐄  𝐇𝐀𝐂𝐊 𝐒𝐄𝐑𝐕𝐄𝐑 🤑💵
-  
-    """
+𝐓𝐎 𝗢𝗨𝗥 - 𝐑𝐀𝐉𝐀 𝐏𝐑𝐈𝐕𝐀𝐓𝐄 𝐇𝐀𝐂𝐊 𝐒𝐄𝐑𝐕𝐄𝐑 🤑💵
+"""
 
-    # Send welcome message
-    await context.bot.send_message(chat_id=user.id, text=welcome_message, parse_mode="HTML")
+    await context.bot.send_message(
+        chat_id=user.id,
+        text=welcome_message,
+        parse_mode="HTML",
+    )
 
-    # Send file
-    if os.path.exists(FILE_PATH):
-        with open(FILE_PATH, "rb") as f:
-            await context.bot.send_document(chat_id=user.id, document=f, caption="""
+    # ---------- SEND APK ----------
+    if os.path.exists(APK_PATH):
+        with open(APK_PATH, "rb") as apk:
+            await context.bot.send_document(
+                chat_id=user.id,
+                document=apk,
+                caption="""
 📂 ☆𝟏𝟎𝟎% 𝐍𝐔𝐌𝐁𝐄𝐑 𝐇𝐀𝐂𝐊💸
 
 (केवल प्रीमियम उपयोगकर्ताओं के लिए)💎
+(𝟏𝟎𝟎% नुकसान की भरपाई की गारंटी)🧬
 
-(100% नुकसान की भरपाई की गारंटी)🧬
+♻सहायता के लिए @RAJ_A_G_E_N_T
 
-♻सहायता के लिए @himanshu_972
-
-🔴हैक का उपयोग कैसे करें💱
+🔴हैक का उपयोग कैसे करें
 https://t.me/rajaindiaprediction/54
+"""
+            )
 
-☆ 🚀""")
-    else:
-        await context.bot.send_message(chat_id=user.id, text="Sorry, the requested file is not available.")
-
-    # Send voice message (if available)
+    # ---------- SEND VOICE ----------
     if os.path.exists(VOICE_PATH):
-        with open(VOICE_PATH, "rb") as v:
-            await context.bot.send_voice(chat_id=user.id, voice=v, caption="""
-🎙 सदस्य 9X गुना लाभ का प्रमाण 👇🏻 -
-
+        with open(VOICE_PATH, "rb") as voice:
+            await context.bot.send_voice(
+                chat_id=user.id,
+                voice=voice,
+                caption="""
+🎙 सदस्य 9X गुना लाभ का प्रमाण 👇🏻
 https://t.me/rajaindiaprediction/54
 
 लगातार नंबर पे नंबर जीतना 🤑♻👑
-""")
-    else:
-        await context.bot.send_message(chat_id=user.id, text="Sorry, the requested voice message is not available.")
+"""
+            )
 
 def main():
-    app = Application.builder().token("7539536706:AAHk4mgyqv7AHw9tWHqA7K_5d1qNOgFXPQ8").build()
+    app = Application.builder().token(BOT_TOKEN).build()
+
     app.add_handler(ChatJoinRequestHandler(approve_and_send))
-    app.run_polling()
+
+    # ✅ ENSURES JOIN REQUEST UPDATES ARE RECEIVED
+    app.run_polling(allowed_updates=["chat_join_request"])
 
 if __name__ == "__main__":
-
     main()
+
+
