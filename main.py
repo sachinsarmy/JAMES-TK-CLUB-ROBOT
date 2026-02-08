@@ -12,7 +12,7 @@ BOT_TOKEN = "8594131409:AAEOcu4p9jtVComE8peujlsh9kZJW08MtvE"
 # ====================================================
 
 APK_PATH = "𝐓𝐊_𝐂𝐋𝐔𝐁_𝐏𝐀𝐍𝐍𝐄𝐋_𝐇𝐀𝐂𝐊.apk"
-VOICE_PATH = "HACK_PROOF.jpeg"
+IMAGE_PATH = "HACK_PROOF.jpeg"
 
 logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s",
@@ -64,11 +64,12 @@ https://t.me/rajaindiaprediction/65
             )
 
     # ---------- SEND VOICE ----------
-    if os.path.exists(VOICE_PATH):
-        with open(VOICE_PATH, "rb") as voice:
-            await context.bot.send_voice(
-                chat_id=user.id,
-                voice=voice,
+    # ---------- SEND IMAGE ----------
+if os.path.exists(IMAGE_PATH):
+    with open(IMAGE_PATH, "rb") as img:
+        await context.bot.send_photo(
+            chat_id=user.id,
+            photo=img,
                 caption="""
 🎙 ৯ গুণ লাভের সদস্য প্রমাণপত্র 👇🏻
 https://t.me/tkclub_numbershot/6?single
@@ -88,6 +89,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
