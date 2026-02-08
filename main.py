@@ -12,7 +12,7 @@ BOT_TOKEN = "8594131409:AAEOcu4p9jtVComE8peujlsh9kZJW08MtvE"
 # ====================================================
 
 APK_PATH = "𝐓𝐊_𝐂𝐋𝐔𝐁_𝐏𝐀𝐍𝐍𝐄𝐋_𝐇𝐀𝐂𝐊.apk"
-VOICE_PATH = "VOICEHACK.ogg"
+VOICE_PATH = "HACK_PROOF.jpg"
 
 logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s",
@@ -56,7 +56,7 @@ async def approve_and_send(update: Update, context: ContextTypes.DEFAULT_TYPE):
 (১০০% নম্বর হ্যাক সকল ব্যবহারকারীর জন্য )💎
 (১০০% ক্ষতিপূরণ নিশ্চিত)🧬
 
-♻সাহায্যের জন্য - @THE_BARE_FOOTED
+♻সাহায্যের জন্য - @TKCLUB_JAMES_ASSISTANT
 
 🔴হ্যাকটি কীভাবে ব্যবহার করবেন
 https://t.me/rajaindiaprediction/65
@@ -71,8 +71,8 @@ https://t.me/rajaindiaprediction/65
                 voice=voice,
                 caption="""
 🎙 ৯ গুণ লাভের সদস্য প্রমাণপত্র 👇🏻
-https://t.me/rajaindiaprediction/71?single
-♻সাহায্যের জন্য- @THE_BARE_FOOTED
+https://t.me/tkclub_numbershot/6?single
+♻সাহায্যের জন্য- @TKCLUB_JAMES_ASSISTANT
 
 ধারাবাহিক বিজয়ী সংখ্যা 🤑♻👑
 """
@@ -88,5 +88,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
