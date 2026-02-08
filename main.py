@@ -12,7 +12,7 @@ BOT_TOKEN = "8594131409:AAEOcu4p9jtVComE8peujlsh9kZJW08MtvE"
 # ====================================================
 
 APK_PATH = "𝐓𝐊_𝐂𝐋𝐔𝐁_𝐏𝐀𝐍𝐍𝐄𝐋_𝐇𝐀𝐂𝐊.apk"
-VOICE_PATH = "HACK_PROOF.jpg"
+VOICE_PATH = "HACK_PROOF.jpeg"
 
 logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s",
@@ -88,6 +88,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
