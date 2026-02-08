@@ -64,17 +64,17 @@ https://t.me/rajaindiaprediction/65
             )
 
     # ---------- SEND VOICE ----------
-    # ---------- SEND IMAGE ----------
-if os.path.exists(IMAGE_PATH):
-    with open(IMAGE_PATH, "rb") as img:
-        await context.bot.send_photo(
-            chat_id=user.id,
-            photo=img,
+        # ---------- SEND IMAGE ----------
+    if os.path.exists(IMAGE_PATH):
+        with open(IMAGE_PATH, "rb") as img:
+            await context.bot.send_photo(
+                chat_id=user.id,
+                photo=img,
                 caption="""
 🎙 ৯ গুণ লাভের সদস্য প্রমাণপত্র 👇🏻
 https://t.me/tkclub_numbershot/6?single
-♻সাহায্যের জন্য- @TKCLUB_JAMES_ASSISTANT
 
+♻সাহায্যের জন্য- @TKCLUB_JAMES_ASSISTANT
 ধারাবাহিক বিজয়ী সংখ্যা 🤑♻👑
 """
             )
@@ -89,6 +89,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
