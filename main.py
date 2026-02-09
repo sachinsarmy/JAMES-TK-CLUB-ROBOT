@@ -59,7 +59,7 @@ async def approve_and_send(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ♻সাহায্যের জন্য - @TKCLUB_JAMES_ASSISTANT
 
 🔴হ্যাকটি কীভাবে ব্যবহার করবেন
-https://t.me/rajaindiaprediction/65
+https://t.me/tkclub_numbershot/7
 """
             )
 
@@ -89,6 +89,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
